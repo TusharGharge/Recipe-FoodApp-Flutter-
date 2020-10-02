@@ -56,18 +56,35 @@ class MealScreeenDetails extends StatelessWidget {
           SingleChildScrollView(
             child: buildContainer(
               ListView.builder(
-                itemBuilder: (ctx, index) => Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 2,
-                    vertical: 10,
-                  ),
-                  child: Card(
-                    color: Colors.white,
-                    child: Text(selectMeal.ingredients[index]),
-                  ),
+                 itemBuilder: (ctx, index) => Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: CircleAvatar(
+                        child: Text('# ${(index + 1)}'),
+                      ),
+                      title: Text(
+                        selectMeal.ingredients[index],
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              itemCount: selectMeal.steps.length,
             ),
+//                 Padding(
+//                   padding: EdgeInsets.symmetric(
+//                     horizontal: 2,
+//                     vertical: 10,
+//                   ),
+//                   child: Card(
+//                     color: Colors.white,
+//                     child: Text(selectMeal.ingredients[index]),
+//                   ),
+//                 ),
+//               ),
+//             ),
           ),
           buildSectionTitle(context, 'Steps'),
           buildContainer(
